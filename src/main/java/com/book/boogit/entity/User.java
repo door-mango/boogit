@@ -2,62 +2,49 @@ package com.book.boogit.entity;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter
-@Setter
-@EntityListeners(AuditingEntityListener.class)
-@Table(name="user", schema = "boogit")
+@Data
 @Entity
+@EntityListeners(AuditingEntityListener.class)
+@Table(name="user", schema = "boogit", uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idx")
-    private Long idx;
+    private Long id;
 
-    @Column(name="u_id")
-    private String u_id;
+    @Column(nullable = false, length = 100, unique = true)
+    private String email;
 
-    @Column(name="u_pwd")
-    private String u_pwd;
+    @Column(nullable = false, length = 50)
+    private String password;
 
-    @Column(name="u_nm")
-    private String u_nm;
-
-    @Column(name="u_eml_id")
-    private String u_eml_id;
+    @Column(nullable = false, length = 50, unique = true)
+    private String username;
 
     @CreatedDate
-    @Column(name="frst_reg_dt")
-    private LocalDateTime frst_reg_dt;
+    @Column(name="created_date")
+    private LocalDateTime createdDate;
 
     @LastModifiedDate
-    @Column(name="last_upt_dt")
-    private LocalDateTime last_upt_dt;
+    @Column(name="modified_date")
+    private LocalDateTime modifiedDate;
 
-    public User() {}
+//    @Enumerated(EnumType.STRING)
+//    @Column(nullable = false)
+//    private Role role;
 
-    public User(Long idx, String u_id, String u_pwd, String u_nm, String u_eml_id, LocalDateTime frst_reg_dt, LocalDateTime last_upt_dt) {
-        super();
-        this.idx = idx;
-        this.u_id = u_id;
-        this.u_pwd = u_pwd;
-        this.u_eml_id = u_eml_id;
-        this.frst_reg_dt = frst_reg_dt;
-        this.last_upt_dt = last_upt_dt;
+    public boolean checkPassword(String password) {
+        return this.password.equals(password);
     }
 
 

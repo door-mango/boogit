@@ -8,6 +8,11 @@ public class PageController {
 
     @GetMapping("/")
     public String main() {
+        return "login";
+    }
+
+    @GetMapping("/index")
+    public String index() {
         return "index";
     }
 
@@ -19,6 +24,11 @@ public class PageController {
     @GetMapping("/login")
     public String moveToLogin() {
         return "login";
+    }
+
+    @GetMapping("/detail")
+    public String moveToDetail() {
+        return "detail";
     }
 
 
