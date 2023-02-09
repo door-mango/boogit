@@ -43,7 +43,8 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .requestMatchers("/", "/index", "/join", "/login" ,"/user/**").permitAll()
+                .requestMatchers("/**").permitAll()
+//                .requestMatchers("/", "/index", "/join", "/login" ,"/user/**").permitAll()
                 .anyRequest()
                 .authenticated();
 

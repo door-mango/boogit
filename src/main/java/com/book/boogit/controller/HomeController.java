@@ -4,11 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class PageController {
+public class HomeController {
 
     @GetMapping("/")
     public String main() {
         return "login";
+    }
+
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup";
     }
 
     @GetMapping("/index")
@@ -16,20 +21,9 @@ public class PageController {
         return "index";
     }
 
-    @GetMapping("/join")
-    public String moveToJoin() {
-        return "join";
-    }
-
     @GetMapping("/login")
     public String moveToLogin() {
         return "login";
     }
-
-    @GetMapping("/detail")
-    public String moveToDetail() {
-        return "detail";
-    }
-
 
 }

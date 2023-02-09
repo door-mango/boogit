@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -31,6 +30,7 @@ public class kakaoController {
         URI targetUrl = UriComponentsBuilder
                 .fromUriString(url)                                      // 호출 url
                 .queryParam("query", query)                        // 파라미터
+                .queryParam("size", 3)
                 .build()
                 .encode(StandardCharsets.UTF_8)                          // 인코딩
                 .toUri();
@@ -40,5 +40,7 @@ public class kakaoController {
         return result.getBody();
 
     }
+
+
 
 }
