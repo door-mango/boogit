@@ -48,8 +48,8 @@ public class UserController {
                     .password(encoder.encode(userDTO.getPassword()))
                     .build();
             // 서비스를 통해 레포지토리 저장 로직 실행
-            User registeredUser = userService.create(user);
-            UserDTO responseUserDTO = UserDTO.builder()
+            User registeredUser = userService.create(user); // 저장함
+            UserDTO responseUserDTO = UserDTO.builder()     // DTO(VO)로 만들어줌
                     .email(registeredUser.getEmail())
                     .id(registeredUser.getId())
                     .username(registeredUser.getUsername())

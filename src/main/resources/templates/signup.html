@@ -21,30 +21,28 @@
       <!-- Card -->
       <div class="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-10 dark:border-gray-700">
         <!-- 회원가입 form start -->
-        <form th:action="@{/user/signup}" method="post">
-          <div class="grid gap-6 mb-6 md:grid-cols-1">
+<!--        <form th:action="@{/user/signup}" method="post">-->
+        <form>
+          <div class="grid gap-2 mb-6 md:grid-cols-1">
             <div>
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
-              <input type="email" id="email" name="email" class="peer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500" placeholder="door.mango@boogit.com" required>
-              <!-- <span class="inline-flex text-sm text-red-600">이메일을 입력해주세요</p>              -->
+              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">이메일 주소</label>
+              <input type="email" id="email" name="email" class="peer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500" autocomplete="off" placeholder="이메일을 입력해주세요" required>
+              <span class="inline-flex text-xs text-red-600" style="visibility: hidden"></span>
             </div>
             <div>
-              <label for="user_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User name</label>
-              <input type="text" id="user_name" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500" placeholder="Mango" required>
+              <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">사용자 이름</label>
+              <input type="text" id="username" name="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500" autocomplete="off" placeholder="이름을 입력해주세요" required>
+              <span class="inline-flex text-xs text-red-600" style="visibility: hidden"></span>
             </div>
             <div>
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">비밀번호</label>
               <input type="password" id="password" name="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500" placeholder="•••••••••" required>
-              <div class="">
-                <!-- <span class="inline-flex text-sm text-red-600">비밀번호를 입력해주세요</p>       -->
-              </div>
+              <span class="inline-flex text-xs text-red-600" style="visibility: hidden"></span>
             </div>
-            <div class="mb-6">
-              <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
+            <div class="mb-2">
+              <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">비밀번호 확인</label>
               <input type="password" id="confirm_password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-emerald-500 focus:border-emerald-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-emerald-500 dark:focus:border-emerald-500" placeholder="•••••••••" required>
-              <div class="">
-                <!-- <span class="inline-flex text-sm text-red-600">비밀번호를 한번 더 입력해주세요</p>       -->
-              </div>
+              <span class="inline-flex text-xs text-red-600" style="visibility: hidden"></span>
             </div>
             <!--
             <div class="flex items-start">
@@ -54,7 +52,7 @@
                 <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="" class="text-blue-600 hover:underline dark:text-emerald-500">terms and conditions</a>.</label>
             </div>
             -->
-            <button type="submit" class="text-white bg-emerald-600 hover:bg-emerald-700 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">가입하기</button>
+            <button type="submit" class="text-white bg-gray-500 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" disabled>가입하기</button>
           </div>
         </form>
 
@@ -74,13 +72,10 @@
 <!-- End Hire Us -->
 <!-- form end -->
 
-
-<script>
-
-  // 참고 https://www.daleseo.com/js-window-fetch/
+<script type="text/javascript" src ="/js/signup.js"></script>
+<!--참고 https://www.daleseo.com/js-window-fetch/-->
 
 
-</script>
 
 </body>
 </html>
