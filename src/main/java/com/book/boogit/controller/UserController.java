@@ -4,9 +4,12 @@ import java.util.Optional;
 
 import com.book.boogit.dto.ResponseDTO;
 import com.book.boogit.dto.UserDTO;
+import com.book.boogit.security.JwtAuthenticationFilter;
 import com.book.boogit.security.TokenProvider;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,8 +29,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RequiredArgsConstructor
 @Slf4j
-//@RestController
-@Controller
+@RestController
+//@Controller
 @RequestMapping(value = "/user") // @RequestMapping("/auth")
 public class UserController {
 
@@ -70,6 +73,7 @@ public class UserController {
     }
 
     // 회원 로그인
+    @CrossOrigin(origins = "http://localhost:8081", exposedHeaders = "Authorization")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView authenticate(UserDTO userDTO) {
 

@@ -22,6 +22,8 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
+    public static final String AUTHORIZATION_HEADER = "Authorization";
+
     @Autowired
     private TokenProvider tokenProvider;
 
@@ -30,6 +32,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         try {
             // 토큰 가져오기
             String token = parseBearerToken(request);
+            log.info("token : {}", token);
             log.info("filter is running");
             // 토큰 검사하기
             if(token != null && !token.equalsIgnoreCase("null")){

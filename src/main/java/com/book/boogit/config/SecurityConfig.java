@@ -44,7 +44,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
                 .requestMatchers("/**").permitAll()
-//                .requestMatchers("/", "/index", "/join", "/login" ,"/user/**").permitAll()
+//                .requestMatchers("/", "/signup", "/login", "/user/**").permitAll()
                 .anyRequest()
                 .authenticated();
 

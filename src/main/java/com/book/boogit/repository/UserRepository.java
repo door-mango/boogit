@@ -3,6 +3,7 @@ package com.book.boogit.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.book.boogit.entity.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 
 public interface UserRepository extends JpaRepository<User, Long>{

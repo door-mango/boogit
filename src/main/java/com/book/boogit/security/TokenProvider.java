@@ -23,6 +23,7 @@ public class TokenProvider {
     public String create(User userEntity){
         Date expiryDate = Date.from(Instant.now().plus(1, ChronoUnit.DAYS));
         return Jwts.builder()
+//                .setHeaderParam("type", "JWT")
                 .signWith(key, SignatureAlgorithm.HS512)
                 .setSubject(userEntity.getEmail())
                 .setIssuer("demo app")

@@ -251,5 +251,23 @@
 <!-- End Testimonials -->
 <!-- cards end -->
 
+<script>
+    /*<![CDATA[*/
+    const responseUser = "[[${responseDTO}]]";
+    const token = "[[${responseDTO.token}]]";
+    /*]]>*/
+    window.onload = () => {
+        /*console.log('responseUser',responseUser);
+        console.log('token',token);*/
+        // 토큰 처리
+        if(token) {
+            // 로컬 스토리지에 토큰 저장 -> 왜 안됨? 갑자기;;;
+            localStorage.setItem('ACCESS_TOKEN', token);
+            console.log('token', localStorage.getItem('ACCESS_TOKEN'));
+        }
+
+    }
+</script>
+
 </body>
 </html>

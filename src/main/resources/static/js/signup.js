@@ -6,7 +6,7 @@
  *  4. 이름은 공백없이 2~12자리
  *
  */
-const app = () => {
+const signup = () => {
 
     const checkRegExp = (regExp, elem, errMsg) => {
         const target = elem.nextElementSibling;
@@ -99,7 +99,7 @@ const app = () => {
     })
 }
 
-app();
+signup();
 
 // 이메일 형식 검사
 // `/^[\w]{4,}@[\w]+(\.[\w]+){1,3}$/`
