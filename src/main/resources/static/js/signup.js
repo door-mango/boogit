@@ -1,3 +1,5 @@
+import { signup } from "./api.js";
+
 /**
  *  회원가입 유효성 검사
  *  1. 이메일은 이메일 형식을 갖춰야 함
@@ -6,7 +8,6 @@
  *  4. 이름은 공백없이 2~12자리
  *
  */
-const signup = () => {
 
     const checkRegExp = (regExp, elem, errMsg) => {
         const target = elem.nextElementSibling;
@@ -97,9 +98,25 @@ const signup = () => {
             activateButton();
         });
     })
-}
 
-signup();
+    const form = document.forms['fetch']; // document.forms.fetch;
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const username = data.get("username");
+        const email = data.get("email");
+        const password = data.get("password");
+        signup({email : email, username : username, password : password }).then(
+            (response) => {
+                window.location.href="/login";
+            }
+        );
+    }
+
+    form.addEventListener('submit', handleSubmit);
+
+
 
 // 이메일 형식 검사
 // `/^[\w]{4,}@[\w]+(\.[\w]+){1,3}$/`

@@ -30,8 +30,8 @@
       <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">< boogit /></h2>
 
     </div>
-    <form class="mt-8 space-y-6" th:action="@{/user/login}" method="post">
-<!--    <form class="mt-8 space-y-6" name="fetch">-->
+<!--    <form class="mt-8 space-y-6" th:action="@{/user/login}" method="post">-->
+    <form class="mt-8 space-y-6" name="fetch">
       <input type="hidden" name="remember" value="true">
       <div class="-space-y-px rounded-md shadow-sm">
         <div>
@@ -75,8 +75,7 @@
   </div>
 </div>
 <!-- login Form end-->
-
-<script type="text/javascript" src ="/js/login.js"></script>
+<script type="module" src ="/js/login.js" defer></script>
 <!---->
 </body>
 </html>

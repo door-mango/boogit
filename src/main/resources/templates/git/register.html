@@ -169,7 +169,7 @@
       <div class="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-10 dark:border-gray-700">
 
         <!-- 도서 정보 입력 form 시작 -->
-        <form>
+        <form th:action="@{/book/register}" method="post">
           <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <!-- <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label> -->
@@ -319,7 +319,6 @@
 
             </tbody>
           </table>
-          </th:block>
         </div>
         <!-- 테이블 -->
       </div>
