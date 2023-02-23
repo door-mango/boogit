@@ -4,9 +4,11 @@ import java.util.Optional;
 
 import com.book.boogit.dto.ResponseDTO;
 import com.book.boogit.dto.UserDTO;
+import com.book.boogit.dto.UserSessionDTO;
 import com.book.boogit.security.JwtAuthenticationFilter;
 import com.book.boogit.security.TokenProvider;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -154,7 +156,7 @@ public class UserController {
 
     // RestController의 ResponseEntity 방식 로그인
     @PostMapping("/login")
-    public ResponseEntity<?> authenticate(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<?> authenticate(HttpServletRequest request, @RequestBody UserDTO userDTO) {
 
         User user = userService.getByCredentials(
                 userDTO.getEmail(),
@@ -171,6 +173,11 @@ public class UserController {
                     .username(user.getUsername())
                     .token(token)
                     .build();
+
+            // 로그인 정보 세션에 저장
+            final UserSessionDTO sessionDTO = new UserSessionDTO(responseUserDTO);
+            HttpSession httpSession = request.getSession(true);
+            httpSession.setAttribute("user", sessionDTO);
 
             return ResponseEntity.ok().body(responseUserDTO);
         } else {

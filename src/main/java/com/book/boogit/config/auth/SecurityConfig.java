@@ -1,4 +1,4 @@
-package com.book.boogit.config;
+package com.book.boogit.config.auth;
 
 import com.book.boogit.security.JwtAuthenticationFilter;
 import lombok.extern.slf4j.Slf4j;

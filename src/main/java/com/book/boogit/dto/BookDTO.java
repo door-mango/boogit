@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +17,7 @@ public class BookDTO {
     private String title;
     private String author;
     private String publisher;
-    private LocalDateTime publication_date;
+    private Date publication_date;
     private int price;
     private String isbn;
     private int totalPageNo;

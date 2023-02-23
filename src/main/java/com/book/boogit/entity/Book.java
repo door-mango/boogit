@@ -8,6 +8,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -31,7 +33,7 @@ public class Book {
     @Column(nullable = false, length = 300)
     private String publisher;
     @Column(name="publication_date")
-    private LocalDateTime publicationDate;
+    private Date publicationDate;
     private int price;
     private String isbn;
     private int totalPageNo;

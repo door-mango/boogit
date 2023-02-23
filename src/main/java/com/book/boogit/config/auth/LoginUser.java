@@ -1,4 +1,4 @@
-package com.book.boogit.config;
+package com.book.boogit.config.auth;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

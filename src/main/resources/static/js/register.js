@@ -73,17 +73,25 @@ const form = document.forms['fetch'];
 const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    const title = data.get("title");
-    const author = data.get("author");
-    const publisher = data.get("publisher");
-    const publication_date = data.get("publication_date");
-    const price = data.get("price");
+    // const title = data.get("title");
+    // const author = data.get("author");
+    // const publisher = data.get("publisher");
+    // const publication_date = data.get("publication_date");
+    // const price = data.get("price");
     const totalPageNo = data.get("total_page_no");
+    console.log('selectedItem', selectedItem);
 
-    call('/book/register', 'POST', {title : title, author : author, publisher : publisher
-        , publication_date : publication_date, price : price, totalPageNo : totalPageNo})
+    call('/book/register', 'POST', { title : selectedItem.title
+                                                        , author : selectedItem.authors.toString()
+                                                        , publisher : selectedItem.publisher
+                                                        , publication_date : selectedItem.datetime.split('T')[0]
+                                                        , price : selectedItem.price
+                                                        , totalPageNo : totalPageNo
+                                                        , thumbnail : selectedItem.thumbnail
+                                                        , isbn : selectedItem.isbn
+                                                        })
         .then((response) => {
-            window.location.href="/index";
+            window.location.href="./bookcase";
         }
     );
 }

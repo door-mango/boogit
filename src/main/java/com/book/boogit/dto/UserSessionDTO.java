@@ -15,10 +15,20 @@ public class UserSessionDTO implements Serializable {
     //private LocalDateTime modifiedDate;
 
     /* Entity -> DTO */
-    public UserSessionDTO(User user) {
+    public UserSessionDTO(UserDTO user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
         //this.modifiedDate = user.getModifiedDate(); // 회원정보 수정 시 수정 날짜를 업데이트해주기 위해 modifiedDate 추가
+    }
+
+    /* DTO -> Entity */
+    public static User toEntity(UserSessionDTO sessionDTO) {
+        User user = User.builder()
+                .id(sessionDTO.getId())
+                .email(sessionDTO.getEmail())
+                .username(sessionDTO.getUsername())
+                .build();
+        return user;
     }
 }

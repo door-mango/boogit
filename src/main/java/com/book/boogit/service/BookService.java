@@ -15,7 +15,7 @@ public class BookService {
     private final BookRepository bookRepository;
 
     public Book create(final Book book) {
-        if(book == null || book.getTitle() == null) {
+        if(book == null) {
             throw new RuntimeException("Invalid Arguments");
         }
 
